@@ -73,7 +73,9 @@ Used Git to track the progress of this project from setup to deployment.
 
 
 ## 7. Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
-- put something
+- Mongo image tag is 'latest'. -This shows it is running on the latest db version.
+- brianbwire/brian-yolo-client image tag is 'v1.0.0'. This shows the version 1 with no furthur releases yet. 
+- brianbwire/brian-yolo-backend image tag is 'v1.0.0'. This shows the version 1 with no furthur releases yet. 
 
 ## 8. There is a screenshot of your deployed image on DockerHub, clearly showing the version of the image
 - put something
