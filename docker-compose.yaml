@@ -6,7 +6,7 @@
 
 #To launch this app without having to clone the entire repository,use the docker-compose.yaml file to run the app
 
-version: "1"
+version: "3.8"
 
 services:
 
@@ -14,7 +14,7 @@ services:
   brian-yolo-client:
     image: karrie/kamau-yolo-client:v1.0.0
     build: ./client
-    container_name: brian-yolo-client
+    container_name: karrie-yolo-client
     stdin_open: true
     tty: true
     ports:
@@ -26,9 +26,9 @@ services:
 
   #Builds the backend Docker image and creates the backend microservice
   brian-yolo-backend:
-    image: brianbwire/brian-yolo-backend:v1.0.0
+    image: karrie/kamau-yolo-backend:v1.0.0
     build: ./backend
-    container_name: brian-yolo-backend
+    container_name: karrie-yolo-backend
     stdin_open: true
     tty: true
     restart: always
