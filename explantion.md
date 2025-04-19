@@ -1,18 +1,23 @@
 # IP 2 explanation for the E-Commerce aplication website
 
-![Banner](/home/phillis/Pictures/Ecommerse.png)
+![Snippet](/home/phillis/Pictures/Ecommerse.png)
 
 ## 1. Choice of the base image on which to build each container.
 -Client /Frontend: Based on node:18-alpine for builds and nginx:alpine for serving the static files.
 -Backend: Used node:18-alpine to minimize image size while maintaining compatibility with Node.js dependencies.
--Database: Used official mongo:latest for stability and built-in volume support.
+-Database:  "MONGO_VERSION=8.0.8", the mongo:latest for stability and built-in volume support.
 
 
 ## 2. Dockerfile directives used in the creation and running of each container.
-- CMD or ENTRYPOINT launches the app.
-- WORKDIR defines the default folder for container operations.
-- RUN installs dependencies (only production for backend).
-- COPY brings in project files.
+-For mongo:
+    1. CMD: Specify default commands.
+    2. WORKDIR: Creating/Change working directory.
+    3. ENTRYPOINT: Specify default executable.
+    4. VOLUMES: Create volume mounts.
+    5. ENV: Set environment variables.
+    6. ONBUILD: Specify instructions for when the image is used in a build.
+    7. RUN: Execute build commands. Installs dependencies (only production for backend).
+    8. COPY brings in project files.
 
 
 ## 3. Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
@@ -25,7 +30,9 @@
 
 ## 4. Docker-compose volume definition and usage (where necessary).
 - MongoDB uses volumes for persistent data:
-volumes:- mongo-data:/data/db
+"Volumes": 
+                "/data/configdb": {},
+                "/data/db": {}
 
 
 ## 5. Git workflow used to achieve the task.
