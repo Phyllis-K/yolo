@@ -9,7 +9,7 @@
 
 
 ## 2. Dockerfile directives used in the creation and running of each container.
--For mongo:
+-For mongo container:
     1. CMD: Specify default commands.
     2. WORKDIR: Creating/Change working directory.
     3. ENTRYPOINT: Specify default executable.
@@ -19,6 +19,14 @@
     7. RUN: Execute build commands. Installs dependencies (only production for backend).
     8. COPY brings in project files.
 
+-For brianbwire/brian-yolo-client:v1.0.0 container: 
+    1. ENV
+    2. CMD
+    3. VOLUMES
+    4. WORKDIR
+    5. ENTRYPOINT
+    6. ONBUILD
+    
 
 ## 3. Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 - For the Ports, we have:
