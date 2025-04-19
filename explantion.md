@@ -27,6 +27,14 @@
     5. ENTRYPOINT
     6. ONBUILD
     
+-For brianbwire/brian-yolo-backend:v1.0.0 container:
+    1. ENV
+    2. CMD
+    3. VOLUMES
+    4. WORKDIR
+    5. ENTRYPOINT
+    6. ONBUILD
+
 
 ## 3. Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 - For the Ports, we have:
