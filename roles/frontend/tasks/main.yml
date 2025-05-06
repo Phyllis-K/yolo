@@ -1,2 +1,64 @@
 ---
 # tasks file for frontend
+- name: Install DOcker on Ubuntu
+  hosts: frontend
+  become: true
+
+  vars:
+    docker_packages:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+
+  tasks:
+
+    - name: Docker prerequisites installation block
+      block:
+        - name: Update apt cache
+          apt:
+            update_cache: yes
+          tags: update
+
+        - name: Install prerequisite packages
+          apt:
+            name: "{{ docker_packages }}"
+            state: present
+          tags: prerequisites
+      tags: setup
+
+    - name: Docker repository configuration block
+      block:
+        - name: Add Docker GPG key
+          apt_key:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            state: present
+          tags: repo
+
+        - name: Add Docker APT repository
+          apt_repository:
+            repo: deb https://download.docker.com/linux/ubuntu focal stable
+            state: present
+          tags: repo
+
+        - name: Update apt cache after adding repo
+          apt:
+            update_cache: yes
+          tags: update
+      tags: repo
+
+    - name: Docker installation and startup block
+      block:
+        - name: Install Docker CE
+          apt:
+            name: docker-ce
+            state: latest
+          tags: install
+
+        - name: Ensure Docker is running and enabled
+          service:
+            name: docker
+            state: started
+            enabled: true
+          tags: start
+      tags: docker

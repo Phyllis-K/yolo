@@ -1,2 +1,10 @@
----
 # tasks file for mongodb
+---
+- name: Run MongoDB container
+  community.docker.docker_container:
+    name: mongodb
+    image: mongo:latest
+    state: started
+    restart_policy: always
+    ports:
+      - "27017:27017"
