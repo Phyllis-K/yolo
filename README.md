@@ -23,9 +23,8 @@ Install the docker engine here:
 ![Alt text](image.png)
 
 ## How to run the app
-Use vagrant up --provison command
-
-
-
-
-
+Use following commands:
+-- vagrant up -to run vagrant
+-- vagrant status -show current box status
+-- vagrant provison - providing a particular machine in vagrant
+--vagrant hault -stop vagrant
