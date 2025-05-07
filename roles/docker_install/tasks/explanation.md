@@ -6,4 +6,4 @@ To set up the environment for Yolo project by provisioning a vagrant machine wit
 
  #---setting playbook-
  - under main.yml/ yaml file edit playbook file--
- -Install docker on all containers 
+ -Install docker and all its packages on all containers 
