@@ -27,4 +27,4 @@ Use following commands:
 -- vagrant up -to run vagrant
 -- vagrant status -show current box status
 -- vagrant provison - providing a particular machine in vagrant
---vagrant hault -stop vagrant
+--vagrant halt -shutdown gracefully vagrant
